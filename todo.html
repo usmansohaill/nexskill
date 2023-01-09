@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To Do</title>
+    </head>
+    <body>
+        <script>
+            let input = prompt("What would you like to do?");
+            const toDos = ["collect eggs", "clean litter box"];
+            while (input != "quit" && input != "q") {
+                if (input === "list") {
+                    console.log("**********")
+                    for (let i = 0; i < toDos.length; i++) {
+                        console.log(`${i}: ${
+                            toDos[i]
+                        }`);
+                    }
+                    console.log("**********")
+                } else if (input === "new") {
+                    const newTodo = prompt("Enter new todo");
+                    toDos.push(newTodo);
+                    console.log(`${newTodo} added to the list.`);
+                } else if (input === "delete") {
+                    const index = parseInt(prompt("Enter the index of the todo you want to delete"));
+                    if (!Number.isNan(index)) {
+                        toDos.splice(index, 1);
+                        console.log(`You deleted ${
+                            toDos[index]
+                        } from the list.`)
+                    } else {
+                        console.log("Unknown index")
+                    }
+
+                }
+                input = prompt("What would you like to do?");
+            }
+            console.log("Okay, You quit.");
+        </script>
+    </body>
+</html>
